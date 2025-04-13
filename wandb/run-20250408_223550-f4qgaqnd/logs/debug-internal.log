@@ -1,0 +1,16 @@
+{"time":"2025-04-08T22:35:50.630896381+07:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2025-04-08T22:35:50.630908406+07:00","level":"INFO","msg":"created symlink","path":"/data/AI/Driver-Drowsiness-Android-App/wandb/run-20250408_223550-f4qgaqnd/logs/debug-core.log"}
+{"time":"2025-04-08T22:35:50.734969755+07:00","level":"INFO","msg":"created new stream","id":"f4qgaqnd"}
+{"time":"2025-04-08T22:35:50.735011161+07:00","level":"INFO","msg":"stream: started","id":"f4qgaqnd"}
+{"time":"2025-04-08T22:35:50.735150552+07:00","level":"INFO","msg":"writer: Do: started","stream_id":"f4qgaqnd"}
+{"time":"2025-04-08T22:35:50.735203083+07:00","level":"INFO","msg":"sender: started","stream_id":"f4qgaqnd"}
+{"time":"2025-04-08T22:35:50.7353816+07:00","level":"INFO","msg":"handler: started","stream_id":"f4qgaqnd"}
+{"time":"2025-04-08T22:35:51.209982591+07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-08T22:37:34.765184716+07:00","level":"INFO","msg":"stream: closing","id":"f4qgaqnd"}
+{"time":"2025-04-08T22:37:34.765203515+07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-08T22:37:34.76550956+07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-08T22:37:35.714091569+07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-08T22:37:36.019273094+07:00","level":"INFO","msg":"handler: closed","stream_id":"f4qgaqnd"}
+{"time":"2025-04-08T22:37:36.019338848+07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"f4qgaqnd"}
+{"time":"2025-04-08T22:37:36.019367555+07:00","level":"INFO","msg":"sender: closed","stream_id":"f4qgaqnd"}
+{"time":"2025-04-08T22:37:36.019535601+07:00","level":"INFO","msg":"stream: closed","id":"f4qgaqnd"}

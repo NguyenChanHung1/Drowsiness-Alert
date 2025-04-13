@@ -1,0 +1,15 @@
+Start epoch 0:
+Traceback (most recent call last):
+  File "/data/AI/Driver-Drowsiness-Android-App/ml/src/tools/train.py", line 115, in <module>
+    main()
+  File "/data/AI/Driver-Drowsiness-Android-App/ml/src/tools/train.py", line 112, in main
+    train(args.ann, args.config)
+  File "/data/AI/Driver-Drowsiness-Android-App/ml/src/tools/train.py", line 105, in train
+    train_CNN_LSTM(train_data, val_data, epochs, device, config_obj["model_info"])
+  File "/data/AI/Driver-Drowsiness-Android-App/ml/src/tools/train.py", line 74, in train_CNN_LSTM
+    model, optimizer, train_loss_ep, val_loss_ep, val_acc_ep = epoch(model, train_data, val_data, loss_function, optimizer, device)
+                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/AI/Driver-Drowsiness-Android-App/ml/src/tools/train.py", line 20, in epoch
+    for i, (data, label) in tqdm(enumerate(train_loader)):
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'module' object is not callable

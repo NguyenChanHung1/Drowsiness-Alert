@@ -1,0 +1,16 @@
+{"time":"2025-04-08T21:20:42.687116774+07:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2025-04-08T21:20:42.68712952+07:00","level":"INFO","msg":"created symlink","path":"/data/AI/Driver-Drowsiness-Android-App/wandb/run-20250408_212042-6j99omh6/logs/debug-core.log"}
+{"time":"2025-04-08T21:20:42.791617062+07:00","level":"INFO","msg":"created new stream","id":"6j99omh6"}
+{"time":"2025-04-08T21:20:42.791660922+07:00","level":"INFO","msg":"stream: started","id":"6j99omh6"}
+{"time":"2025-04-08T21:20:42.791831927+07:00","level":"INFO","msg":"writer: Do: started","stream_id":"6j99omh6"}
+{"time":"2025-04-08T21:20:42.791924345+07:00","level":"INFO","msg":"handler: started","stream_id":"6j99omh6"}
+{"time":"2025-04-08T21:20:42.792052067+07:00","level":"INFO","msg":"sender: started","stream_id":"6j99omh6"}
+{"time":"2025-04-08T21:20:43.29518526+07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-08T21:20:48.231188767+07:00","level":"INFO","msg":"stream: closing","id":"6j99omh6"}
+{"time":"2025-04-08T21:20:48.231217132+07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-08T21:20:48.23168029+07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-08T21:20:49.477802751+07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-08T21:20:49.798111664+07:00","level":"INFO","msg":"handler: closed","stream_id":"6j99omh6"}
+{"time":"2025-04-08T21:20:49.798147961+07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"6j99omh6"}
+{"time":"2025-04-08T21:20:49.798166073+07:00","level":"INFO","msg":"sender: closed","stream_id":"6j99omh6"}
+{"time":"2025-04-08T21:20:49.798317595+07:00","level":"INFO","msg":"stream: closed","id":"6j99omh6"}

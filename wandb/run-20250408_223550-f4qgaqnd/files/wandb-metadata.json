@@ -1,0 +1,49 @@
+{
+  "os": "Linux-6.11.0-21-generic-x86_64-with-glibc2.39",
+  "python": "3.11.9",
+  "startedAt": "2025-04-08T15:35:50.629970Z",
+  "args": [
+    "--ann",
+    "ml/dataset/data.csv",
+    "--config",
+    "ml/src/config/CNN_LSTM.yaml"
+  ],
+  "program": "/data/AI/Driver-Drowsiness-Android-App/ml/src/tools/train.py",
+  "codePath": "ml/src/tools/train.py",
+  "git": {
+    "remote": "https://github.com/NguyenChanHung1/Driver-Drowsiness-Android-App.git",
+    "commit": "78332f210edf3b5b58a9f891a804bced460dcd1a"
+  },
+  "email": "nchhdhn@gmail.com",
+  "root": "/data/AI/Driver-Drowsiness-Android-App",
+  "host": "hung-Asus",
+  "username": "hung",
+  "executable": "/home/hung/anaconda3/envs/hungnc/bin/python3",
+  "codePathLocal": "ml/src/tools/train.py",
+  "cpu_count": 12,
+  "cpu_count_logical": 20,
+  "gpu": "NVIDIA GeForce RTX 4060 Ti",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "161132752896",
+      "used": "112985657344"
+    }
+  },
+  "memory": {
+    "total": "33453776896"
+  },
+  "cpu": {
+    "count": 12,
+    "countLogical": 20
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA GeForce RTX 4060 Ti",
+      "memoryTotal": "17175674880",
+      "cudaCores": 4352,
+      "architecture": "Ada"
+    }
+  ],
+  "cudaVersion": "12.4"
+}

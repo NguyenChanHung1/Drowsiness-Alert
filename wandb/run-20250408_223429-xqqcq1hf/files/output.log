@@ -1,0 +1,37 @@
+Start epoch 0:
+  0%|                                                                                                                                                                  | 0/6 [00:53<?, ?it/s]
+Traceback (most recent call last):
+  File "/data/AI/Driver-Drowsiness-Android-App/ml/src/tools/train.py", line 116, in <module>
+    main()
+  File "/data/AI/Driver-Drowsiness-Android-App/ml/src/tools/train.py", line 113, in main
+    train(args.ann, args.config)
+  File "/data/AI/Driver-Drowsiness-Android-App/ml/src/tools/train.py", line 106, in train
+    train_CNN_LSTM(train_data, val_data, epochs, device, config_obj["model_info"])
+  File "/data/AI/Driver-Drowsiness-Android-App/ml/src/tools/train.py", line 74, in train_CNN_LSTM
+    model, optimizer, train_loss_ep, val_loss_ep, val_acc_ep = epoch(model, train_data, val_data, loss_function, optimizer, device)
+                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/AI/Driver-Drowsiness-Android-App/ml/src/tools/train.py", line 24, in epoch
+    outputs = model(data)
+              ^^^^^^^^^^^
+  File "/home/hung/anaconda3/envs/hungnc/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hung/anaconda3/envs/hungnc/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/AI/Driver-Drowsiness-Android-App/ml/src/model/CNN_LSTM.py", line 54, in forward
+    out = self.bn1(out)
+          ^^^^^^^^^^^^^
+  File "/home/hung/anaconda3/envs/hungnc/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hung/anaconda3/envs/hungnc/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hung/anaconda3/envs/hungnc/lib/python3.11/site-packages/torch/nn/modules/batchnorm.py", line 176, in forward
+    return F.batch_norm(
+           ^^^^^^^^^^^^^
+  File "/home/hung/anaconda3/envs/hungnc/lib/python3.11/site-packages/torch/nn/functional.py", line 2512, in batch_norm
+    return torch.batch_norm(
+           ^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 50.00 MiB. GPU 0 has a total capacity of 15.69 GiB of which 71.56 MiB is free. Process 3059 has 120.25 MiB memory in use. Including non-PyTorch memory, this process has 15.02 GiB memory in use. Of the allocated memory 14.39 GiB is allocated by PyTorch, and 509.40 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

@@ -1,0 +1,15 @@
+# ---
+# Training config for CNN+LSTM model
+
+train_hyp:
+  batch_size: 8
+  num_workers: 4
+  gpu: True # Change this if device does not support cuda
+  epochs: 200
+
+model_info:
+  model_type: CNN_LSTM
+  lr0: 1e-3
+  backbone: "resnet18"
+  hidden_size: 256
+  num_lstm_layers: 1
