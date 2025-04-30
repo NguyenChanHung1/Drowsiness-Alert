@@ -1,0 +1,11 @@
+Training Epoch 1/50:   0%|                                 | 0/7 [00:00<?, ?it/s]
+torch.Size([16, 2]) Lay bo sep
+torch.Size([16, 2]) Ao but sep
+/home/hung/anaconda3/envs/hungnc/lib/python3.11/site-packages/torch/optim/lr_scheduler.py:216: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  warnings.warn(
+Validating:   0%|                                          | 0/3 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/data/AI/Driver-Drowsiness-Android-App/ml/src/tools/train.py", line 105, in <module>
+    val_acc = correct_val / total_val
+              ~~~~~~~~~~~~^~~~~~~~~~~
+ZeroDivisionError: division by zero

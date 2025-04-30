@@ -147,8 +147,8 @@ def main():
     parser.add_argument('-oc', '--output-clipdir', help="Destination folder of video clips after extracting")
     args = parser.parse_args()
     video_data_preprocessor = VideoDataPreprocessor(args.data_dir, args.number_frames, args.interval, args.output_framedir, args.output_clipdir)
-    video_data_preprocessor.extract_frames()
-    video_data_preprocessor.extract_clips()
+    # video_data_preprocessor.extract_frames()
+    # video_data_preprocessor.extract_clips()
     video_data_preprocessor.export_analysis("ml/dataset")
 
 if __name__ == '__main__':

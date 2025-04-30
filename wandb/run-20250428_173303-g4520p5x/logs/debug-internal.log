@@ -1,0 +1,16 @@
+{"time":"2025-04-28T17:33:03.194084198+07:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2025-04-28T17:33:03.194103193+07:00","level":"INFO","msg":"created symlink","path":"/data/AI/Driver-Drowsiness-Android-App/wandb/run-20250428_173303-g4520p5x/logs/debug-core.log"}
+{"time":"2025-04-28T17:33:03.297691127+07:00","level":"INFO","msg":"created new stream","id":"g4520p5x"}
+{"time":"2025-04-28T17:33:03.297707293+07:00","level":"INFO","msg":"stream: started","id":"g4520p5x"}
+{"time":"2025-04-28T17:33:03.297942522+07:00","level":"INFO","msg":"handler: started","stream_id":"g4520p5x"}
+{"time":"2025-04-28T17:33:03.298362441+07:00","level":"INFO","msg":"sender: started","stream_id":"g4520p5x"}
+{"time":"2025-04-28T17:33:03.298390597+07:00","level":"INFO","msg":"writer: Do: started","stream_id":"g4520p5x"}
+{"time":"2025-04-28T17:33:03.798360159+07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-28T17:33:04.348804744+07:00","level":"INFO","msg":"stream: closing","id":"g4520p5x"}
+{"time":"2025-04-28T17:33:04.348863035+07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-28T17:33:04.349674724+07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-28T17:33:09.308487177+07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-28T17:33:09.654321171+07:00","level":"INFO","msg":"handler: closed","stream_id":"g4520p5x"}
+{"time":"2025-04-28T17:33:09.654385119+07:00","level":"INFO","msg":"sender: closed","stream_id":"g4520p5x"}
+{"time":"2025-04-28T17:33:09.65436164+07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"g4520p5x"}
+{"time":"2025-04-28T17:33:09.654502489+07:00","level":"INFO","msg":"stream: closed","id":"g4520p5x"}
