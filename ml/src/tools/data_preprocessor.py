@@ -5,9 +5,9 @@ from glob import glob
 from tqdm import tqdm
 from moviepy import VideoFileClip
 import pandas as pd
+import random
 
 ML_DIR = "ml"
-
 
 class VideoDataPreprocessor:
     def __init__(self, data_dir: str | None, num_frames_per_chunk: int = 60, frames_interval: int = 1, output_framedir: str = None, output_clipdir: str= None):
@@ -77,18 +77,35 @@ class VideoDataPreprocessor:
         print(f"Data analysis file is exported into {export_path}.")
         count_drowsy_file = len(self.data_summary[self.data_summary.label == 1])
         count_focus_file = len(self.data_summary[self.data_summary.label == 0])
+        count_train_file = self.data_summary['clip_path'].str.contains("train").sum()
+        count_val_file = self.data_summary['clip_path'].str.contains("val").sum()
         print(f"There is {len(self.data_summary)} clips in the dataset, with {count_drowsy_file} drowsy clips, and {count_focus_file} focus clips.")
+        print(f"There are {count_train_file} train clips, and {count_val_file} valid clips.")
+        print(f"Total length of videos:", self.data_summary["length(sec)"].sum(), "seconds")
+        count_train_drowsy = len(self.data_summary[(self.data_summary.label==1) & (self.data_summary['clip_path'].str.contains("train"))])
+        count_train_focus = len(self.data_summary[(self.data_summary.label==0) & (self.data_summary['clip_path'].str.contains("train"))])
+        print(f"There are {count_train_drowsy} drowsy clips, {count_train_focus} focused clips in train dataset")
         
     def cut_video(self, input_path: str, output_path: str, start_frame: int, end_frame: int, fps: float):
         start_time = start_frame / fps
-        end_time = end_frame / fps - 0.4 if fps != 30.0 else end_frame / fps
+        end_time = end_frame / fps - 0.3 if fps != 30.0 else end_frame / fps
         print("Clip video:", start_time, end_time, fps)
 
         clip = VideoFileClip(input_path).subclipped(start_time, end_time)
-        clip.write_videofile(output_path, fps=fps, logger=None)
+        clip.write_videofile(output_path, fps=fps, logger=None, audio=False)
 
     def divide_into_chunks(self, video_file: str, option: str):
         chunk_dict = {}
+        split_rand = random.random()
+        split = "train" if split_rand <= 0.7 else "val"
+        drowsy_taken_prob = random.random()
+        # skip
+        if "phongnguyen" in video_file and "drowsy" in video_file:
+            return chunk_dict 
+        if "hung_" in video_file and "drowsy" in video_file:
+            return chunk_dict 
+        # if "drowsy" in video_file and drowsy_taken_prob < 0.35 and split == 'train':
+        #     return chunk_dict
         video, _, info = io.read_video(video_file, pts_unit='sec')
         frame_len = video.shape[0]
         chunk_id = 0
@@ -101,9 +118,10 @@ class VideoDataPreprocessor:
                 if option == 'frame':
                     first = self.output_framedir
                 elif option == 'clip':
-                    first = self.output_clipdir
+                    first = os.path.join(self.output_clipdir, split)  
                 else:
                     raise NotImplementedError
+            
                 chunk_name = os.path.join(first, '.'.join(video_file.split('.')[:-1]).split('/')[-1] + "_C" + str(chunk_id)) # example: hung_glass_drowsy1
                 start_frame = cur_frame
                 if (frame_len - cur_frame) / self.num_frames_per_chunk < 1.5:
@@ -148,7 +166,7 @@ def main():
     args = parser.parse_args()
     video_data_preprocessor = VideoDataPreprocessor(args.data_dir, args.number_frames, args.interval, args.output_framedir, args.output_clipdir)
     # video_data_preprocessor.extract_frames()
-    # video_data_preprocessor.extract_clips()
+    video_data_preprocessor.extract_clips()
     video_data_preprocessor.export_analysis("ml/dataset")
 
 if __name__ == '__main__':

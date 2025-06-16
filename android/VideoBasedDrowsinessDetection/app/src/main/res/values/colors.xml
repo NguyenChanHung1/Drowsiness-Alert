@@ -2,4 +2,24 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="primary_color">#1E88E5</color>
+    <color name="primary_dark_color">#1565C0</color>
+    <color name="accent_color">#FF5722</color>
+    <color name="background_color">#F5F5F5</color>
+
+    <!-- Drowsiness Events Colors -->
+    <color name="drowsy_severe">#F44336</color> <!-- Red for severe events -->
+    <color name="drowsy_moderate">#FF9800</color> <!-- Orange for moderate events -->
+    <color name="drowsy_mild">#FFC107</color> <!-- Yellow for mild events -->
+
+    <!-- UI Component Colors -->
+    <color name="camera_placeholder">#424242</color>
+
+    <!-- Legacy colors (keep for backward compatibility) -->
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
 </resources>

@@ -14,26 +14,28 @@ from tqdm import tqdm
 from pytorchvideo.transforms import UniformTemporalSubsample
 
 DEVICE = "cuda" # default
-NUM_FRAMES = 90
-DETECT_SIZE = 384
-PFLD_SIZE = 112
+NUM_FRAMES = 40
+DETECT_SIZE = 320
+PFLD_SIZE = 112                                                                                                 
+LANDMARKS_MASK = [0, 2, 5, 8, 11, 14, 16, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 27, 29, 31, 33, 35, 60, 61, 63, 64, 65, 67]
 
 class IntermediateDataProcessor:
-    def __init__(self, clips_path):
+    def __init__(self, clips_path, num_frames=NUM_FRAMES):
         self.clips_path = clips_path
-        self.detector = YOLO("/data/AI/Driver-Drowsiness-Android-App/ml/weights/yolo8n_face/yolo8n_face.pt").to(DEVICE)
+        self.num_frames = int(num_frames)
+        self.detector = YOLO("/data/AI/Driver-Drowsiness-Android-App/ml/weights/YOLO/yolo8n_face_320.pt").to(DEVICE)
         self.landmark_regressor = PFLDInference()
-        self.landmark_regressor.load_state_dict(torch.load("ml/weights/PFLD/checkpoint_epoch_200.pth.tar", map_location=DEVICE)["plfd_backbone"])
+        self.landmark_regressor.load_state_dict(torch.load("ml/weights/PFLD/checkpoint_epoch_250.pth.tar", map_location=DEVICE)["plfd_backbone"])
         self.landmark_regressor.eval()
-        self.video_transform = UniformTemporalSubsample(NUM_FRAMES, 0) # Temporal sampling to ensure frame length consistency 
+        self.video_transform = UniformTemporalSubsample(self.num_frames, 0) # Temporal sampling to ensure frame length consistency 
         self.detect_transform = transforms.Compose([transforms.Resize((DETECT_SIZE,DETECT_SIZE)),])
         self.regress_transform = transforms.Compose([transforms.Resize((PFLD_SIZE,PFLD_SIZE)),])# transforms.Normalize(mean=[0.5]*3, std=[0.5]*3)])
 
     def process_video(self, video_path: str):
         video, _, info = io.read_video(video_path, pts_unit='sec') # [90,w,h,3]
         video = self.video_transform(video)
-        landmark_seq_path = video_path.replace("clips", "landmarks_sequence").replace("mp4", "txt")
-        video = video.permute(0,3,1,2) # [90,3,384,384]
+        landmark_seq_path = video_path.replace("clips", f"landmarks_sequence_t{self.num_frames}").replace("mp4", "txt")
+        video = video.permute(0,3,1,2) # [40,3,W,H]
         with open(landmark_seq_path, "w") as f:
             for i in range(video.shape[0]):
                 frame = video[i]
@@ -47,9 +49,12 @@ class IntermediateDataProcessor:
                 relocate = torch.Tensor([x1,y1] * 68).reshape(-1,2)
                 restore_wh = torch.Tensor([detected_face.shape[3], detected_face.shape[2]])
 
+                # Transform for PFLD
                 detected_face = self.regress_transform(detected_face)
-                landmarks = self.landmark_regressor(detected_face).view(-1,2) # Landmarks vector [136,] # 68 keypoints, each with 2 x,y coordinates
-                landmarks = (landmarks * restore_wh + relocate).view(1,-1)[0] / torch.Tensor([DETECT_SIZE]) # 0 <= landmarks[i] <= 1
+                landmarks = self.landmark_regressor(detected_face).view(-1,2) # Landmarks vector [136,] # 68 keypoints of (x,y)
+                
+                landmarks = (landmarks * restore_wh + relocate) / torch.Tensor([DETECT_SIZE]) # 0 <= landmarks[i] <= 1
+                landmarks = landmarks[LANDMARKS_MASK].view(1,-1)[0]
                 for lm in landmarks:
                     f.write(str(lm.item()) + " ")
                 
@@ -62,22 +67,17 @@ class IntermediateDataProcessor:
         for clip in tqdm(clip_glob):
             self.process_video(clip)
 
-    def debug_processor(self, video_tensor, info):
-        if video_tensor.max() <= 1.0:
-            video_tensor = (video_tensor * 255).clamp(0, 255).byte()
-
-        video_tensor = video_tensor.permute(0,2,3,1)
-        print("Video shape, video fps, data type:", video_tensor.shape, info["video_fps"], video_tensor.dtype)
-
-        io.write_video(
-            filename="ml/output/test_video.mp4",
-            video_array=video_tensor,
-            fps=info["video_fps"]
-        )
-
-def intermediate_repr_gen() :
-    processor = IntermediateDataProcessor("ml/dataset/clips/train")
+def intermediate_repr_gen(num_frames) :
+    # Full frame
+    train_proc = IntermediateDataProcessor("ml/dataset/clips/train", num_frames=num_frames)
+    train_proc.export_intermediate_repr_data()
+    processor = IntermediateDataProcessor("ml/dataset/clips/val", num_frames=num_frames)
     processor.export_intermediate_repr_data()
 
+import argparse
+
 if __name__ == '__main__':
-    intermediate_repr_gen()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-nf', '--number-frames', help="The number of frames for each chunk", default=40)
+    args = parser.parse_args()
+    intermediate_repr_gen(args.number_frames)

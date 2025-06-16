@@ -1,0 +1,407 @@
+kotlin version: 2.0.21
+error message: org.jetbrains.kotlin.backend.common.BackendException: Backend Internal error: Exception during IR lowering
+File being compiled: /data/AI/Driver-Drowsiness-Android-App/android/VideoBasedDrowsinessDetection/app/src/main/java/com/app/videobaseddrowsinessdetection/MainActivity.kt
+The root cause java.lang.RuntimeException was thrown at: org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:47)
+	at org.jetbrains.kotlin.backend.common.CodegenUtil.reportBackendException(CodegenUtil.kt:253)
+	at org.jetbrains.kotlin.backend.common.CodegenUtil.reportBackendException$default(CodegenUtil.kt:236)
+	at org.jetbrains.kotlin.backend.common.phaser.PerformByIrFilePhase.invokeSequential(performByIrFile.kt:65)
+	at org.jetbrains.kotlin.backend.common.phaser.PerformByIrFilePhase.invoke(performByIrFile.kt:52)
+	at org.jetbrains.kotlin.backend.common.phaser.PerformByIrFilePhase.invoke(performByIrFile.kt:38)
+	at org.jetbrains.kotlin.backend.common.phaser.NamedCompilerPhase.phaseBody(CompilerPhase.kt:166)
+	at org.jetbrains.kotlin.backend.common.phaser.AbstractNamedCompilerPhase.invoke(CompilerPhase.kt:113)
+	at org.jetbrains.kotlin.backend.common.phaser.CompositePhase.invoke(PhaseBuilders.kt:27)
+	at org.jetbrains.kotlin.backend.common.phaser.CompositePhase.invoke(PhaseBuilders.kt:14)
+	at org.jetbrains.kotlin.backend.common.phaser.NamedCompilerPhase.phaseBody(CompilerPhase.kt:166)
+	at org.jetbrains.kotlin.backend.common.phaser.AbstractNamedCompilerPhase.invoke(CompilerPhase.kt:113)
+	at org.jetbrains.kotlin.backend.common.phaser.CompilerPhaseKt.invokeToplevel(CompilerPhase.kt:62)
+	at org.jetbrains.kotlin.backend.jvm.JvmIrCodegenFactory.invokeCodegen(JvmIrCodegenFactory.kt:371)
+	at org.jetbrains.kotlin.codegen.CodegenFactory.generateModule(CodegenFactory.kt:47)
+	at org.jetbrains.kotlin.backend.jvm.JvmIrCodegenFactory.generateModuleInFrontendIRMode(JvmIrCodegenFactory.kt:433)
+	at org.jetbrains.kotlin.cli.jvm.compiler.pipeline.JvmCompilerPipelineKt.generateCodeFromIr(jvmCompilerPipeline.kt:246)
+	at org.jetbrains.kotlin.cli.jvm.compiler.pipeline.JvmCompilerPipelineKt.compileModulesUsingFrontendIrAndLightTree(jvmCompilerPipeline.kt:142)
+	at org.jetbrains.kotlin.cli.jvm.K2JVMCompiler.doExecute(K2JVMCompiler.kt:148)
+	at org.jetbrains.kotlin.cli.jvm.K2JVMCompiler.doExecute(K2JVMCompiler.kt:43)
+	at org.jetbrains.kotlin.cli.common.CLICompiler.execImpl(CLICompiler.kt:103)
+	at org.jetbrains.kotlin.cli.common.CLICompiler.execImpl(CLICompiler.kt:49)
+	at org.jetbrains.kotlin.cli.common.CLITool.exec(CLITool.kt:101)
+	at org.jetbrains.kotlin.incremental.IncrementalJvmCompilerRunner.runCompiler(IncrementalJvmCompilerRunner.kt:464)
+	at org.jetbrains.kotlin.incremental.IncrementalJvmCompilerRunner.runCompiler(IncrementalJvmCompilerRunner.kt:73)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.doCompile(IncrementalCompilerRunner.kt:506)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.compileImpl(IncrementalCompilerRunner.kt:423)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.tryCompileIncrementally$lambda$9$compile(IncrementalCompilerRunner.kt:249)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.tryCompileIncrementally(IncrementalCompilerRunner.kt:267)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.compile(IncrementalCompilerRunner.kt:120)
+	at org.jetbrains.kotlin.daemon.CompileServiceImplBase.execIncrementalCompiler(CompileServiceImpl.kt:675)
+	at org.jetbrains.kotlin.daemon.CompileServiceImplBase.access$execIncrementalCompiler(CompileServiceImpl.kt:92)
+	at org.jetbrains.kotlin.daemon.CompileServiceImpl.compile(CompileServiceImpl.kt:1660)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(Unknown Source)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Unknown Source)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(Unknown Source)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.RuntimeException: Exception while generating code for:
+FUN name:onCreate visibility:protected modality:OPEN <> ($this:com.app.videobaseddrowsinessdetection.MainActivity, savedInstanceState:android.os.Bundle?) returnType:kotlin.Unit
+  overridden:
+    protected/*protected and package*/ open fun onCreate (p0: @[EnhancedNullability] android.os.Bundle?): kotlin.Unit [fake_override] declared in androidx.appcompat.app.AppCompatActivity
+  $this: VALUE_PARAMETER name:<this> type:com.app.videobaseddrowsinessdetection.MainActivity
+  VALUE_PARAMETER name:savedInstanceState index:0 type:android.os.Bundle?
+  BLOCK_BODY
+    CALL 'protected/*protected and package*/ open fun onCreate (p0: @[EnhancedNullability] android.os.Bundle?): kotlin.Unit [fake_override] declared in androidx.appcompat.app.AppCompatActivity' superQualifier='CLASS IR_EXTERNAL_JAVA_DECLARATION_STUB CLASS name:AppCompatActivity modality:OPEN visibility:public superTypes:[androidx.fragment.app.FragmentActivity; androidx.appcompat.app.AppCompatCallback; androidx.core.app.TaskStackBuilder.SupportParentable; androidx.appcompat.app.ActionBarDrawerToggle.DelegateProvider]' type=kotlin.Unit origin=null
+      $this: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+      p0: GET_VAR 'savedInstanceState: android.os.Bundle? declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=android.os.Bundle? origin=null
+    COMPOSITE type=kotlin.Unit origin=null
+      TRY type=kotlin.Int
+        try: BLOCK type=kotlin.Int origin=null
+          SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:yoloModel type:com.app.videobaseddrowsinessdetection.ml.PFLDInterpreter? visibility:private' type=kotlin.Unit origin=null
+            receiver: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+            value: CONSTRUCTOR_CALL 'public constructor <init> (context: android.content.Context) [primary] declared in com.app.videobaseddrowsinessdetection.ml.PFLDInterpreter' type=com.app.videobaseddrowsinessdetection.ml.PFLDInterpreter origin=null
+              context: BLOCK type=android.content.Context origin=null
+                VAR IR_TEMPORARY_VARIABLE name:tmp0 type:kotlin.Any? [val]
+                  CALL 'public open fun getApplicationContext (): @[FlexibleNullability] android.content.Context? [fake_override] declared in com.app.videobaseddrowsinessdetection.MainActivity' type=@[FlexibleNullability] android.content.Context? origin=GET_PROPERTY
+                    $this: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+                CALL 'public final fun checkNotNullExpressionValue (value: kotlin.Any?, expression: kotlin.String): kotlin.Unit declared in kotlin.jvm.internal.Intrinsics' type=kotlin.Unit origin=null
+                  value: GET_VAR 'val tmp0: kotlin.Any? [val] declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=kotlin.Any? origin=null
+                  expression: CONST String type=kotlin.String value="getApplicationContext(...)"
+                GET_VAR 'val tmp0: kotlin.Any? [val] declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=kotlin.Any? origin=null
+          SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:detectModel type:com.app.videobaseddrowsinessdetection.ml.YOLOInterpreter? visibility:private' type=kotlin.Unit origin=null
+            receiver: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+            value: CONSTRUCTOR_CALL 'public constructor <init> (context: android.content.Context) [primary] declared in com.app.videobaseddrowsinessdetection.ml.YOLOInterpreter' type=com.app.videobaseddrowsinessdetection.ml.YOLOInterpreter origin=null
+              context: BLOCK type=android.content.Context origin=null
+                VAR IR_TEMPORARY_VARIABLE name:tmp1 type:kotlin.Any? [val]
+                  CALL 'public open fun getApplicationContext (): @[FlexibleNullability] android.content.Context? [fake_override] declared in com.app.videobaseddrowsinessdetection.MainActivity' type=@[FlexibleNullability] android.content.Context? origin=GET_PROPERTY
+                    $this: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+                CALL 'public final fun checkNotNullExpressionValue (value: kotlin.Any?, expression: kotlin.String): kotlin.Unit declared in kotlin.jvm.internal.Intrinsics' type=kotlin.Unit origin=null
+                  value: GET_VAR 'val tmp1: kotlin.Any? [val] declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=kotlin.Any? origin=null
+                  expression: CONST String type=kotlin.String value="getApplicationContext(...)"
+                GET_VAR 'val tmp1: kotlin.Any? [val] declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=kotlin.Any? origin=null
+          CALL 'public open fun w (p0: @[EnhancedNullability] kotlin.String?, p1: @[EnhancedNullability] kotlin.String): kotlin.Int declared in android.util.Log' type=kotlin.Int origin=null
+            p0: CONST String type=kotlin.String value="YOLO"
+            p1: CONST String type=kotlin.String value="Works fine"
+        CATCH parameter=val e: java.lang.Exception [val] declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate
+          VAR CATCH_PARAMETER name:e type:java.lang.Exception [val]
+          BLOCK type=kotlin.Int origin=null
+            CALL 'public open fun show (): kotlin.Unit declared in android.widget.Toast' type=kotlin.Unit origin=null
+              $this: CALL 'public open fun makeText (p0: @[FlexibleNullability] android.content.Context?, p1: @[FlexibleNullability] kotlin.CharSequence?, p2: kotlin.Int): @[FlexibleNullability] android.widget.Toast? declared in android.widget.Toast' type=@[FlexibleNullability] android.widget.Toast? origin=null
+                p0: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+                p1: CONST String type=kotlin.String value="Failed"
+                p2: CONST Int type=kotlin.Int value=1
+            CALL 'public open fun e (p0: @[EnhancedNullability] kotlin.String?, p1: @[EnhancedNullability] kotlin.String): kotlin.Int declared in android.util.Log' type=kotlin.Int origin=null
+              p0: CONST String type=kotlin.String value="YOLO"
+              p1: CALL 'public open fun toString (): kotlin.String [fake_override] declared in java.lang.Exception' type=kotlin.String origin=null
+                $this: GET_VAR 'val e: java.lang.Exception [val] declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=java.lang.Exception origin=null
+      COMPOSITE type=kotlin.Unit origin=null
+    CALL 'public final fun enableEdgeToEdge$default (statusBarStyle: androidx.activity.SystemBarStyle?, navigationBarStyle: androidx.activity.SystemBarStyle?, $mask0: kotlin.Int, $handler: kotlin.Any?): kotlin.Unit declared in androidx.activity.EdgeToEdge' type=kotlin.Unit origin=DEFAULT_DISPATCH_CALL
+      $receiver: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+      statusBarStyle: COMPOSITE type=androidx.activity.SystemBarStyle? origin=DEFAULT_VALUE
+        CONST Null type=androidx.activity.SystemBarStyle? value=null
+      navigationBarStyle: COMPOSITE type=androidx.activity.SystemBarStyle? origin=DEFAULT_VALUE
+        CONST Null type=androidx.activity.SystemBarStyle? value=null
+      $mask0: CONST Int type=kotlin.Int value=3
+      $handler: CONST Null type=kotlin.Any? value=null
+    CALL 'public open fun setContentView (p0: kotlin.Int): kotlin.Unit [fake_override] declared in com.app.videobaseddrowsinessdetection.MainActivity' type=kotlin.Unit origin=null
+      $this: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+      p0: GET_FIELD 'FIELD IR_EXTERNAL_JAVA_DECLARATION_STUB name:activity_main type:kotlin.Int visibility:public [static] declared in com.app.videobaseddrowsinessdetection.R.layout' type=kotlin.Int superQualifierSymbol=com.app.videobaseddrowsinessdetection.R.layout origin=null
+    CALL 'public open fun setOnApplyWindowInsetsListener (p0: @[NonNull] @[FlexibleNullability] android.view.View?, p1: @[Nullable] @[FlexibleNullability] androidx.core.view.OnApplyWindowInsetsListener?): kotlin.Unit declared in androidx.core.view.ViewCompat' type=kotlin.Unit origin=null
+      p0: CALL 'public open fun findViewById <T> (p0: kotlin.Int): @[FlexibleNullability] T of com.app.videobaseddrowsinessdetection.MainActivity.findViewById? [fake_override] declared in com.app.videobaseddrowsinessdetection.MainActivity' type=@[FlexibleNullability] @[NonNull] android.view.View? origin=null
+        <T>: @[FlexibleNullability] @[NonNull] android.view.View?
+        $this: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+        p0: GET_FIELD 'FIELD IR_EXTERNAL_JAVA_DECLARATION_STUB name:main type:kotlin.Int visibility:public [static] declared in com.app.videobaseddrowsinessdetection.R.id' type=kotlin.Int superQualifierSymbol=com.app.videobaseddrowsinessdetection.R.id origin=null
+      p1: BLOCK type=@[Nullable] androidx.core.view.OnApplyWindowInsetsListener origin=LAMBDA
+        COMPOSITE type=kotlin.Unit origin=null
+        CALL 'public final fun <jvm-indy> <T> (dynamicCall: T of kotlin.jvm.internal.<jvm-indy>, bootstrapMethodHandle: kotlin.Any, vararg bootstrapMethodArguments: kotlin.Any): T of kotlin.jvm.internal.<jvm-indy> declared in kotlin.jvm.internal' type=@[Nullable] androidx.core.view.OnApplyWindowInsetsListener origin=null
+          <T>: @[Nullable] androidx.core.view.OnApplyWindowInsetsListener
+          dynamicCall: CALL 'public final fun onApplyWindowInsets (): @[Nullable] androidx.core.view.OnApplyWindowInsetsListener declared in kotlin.jvm.internal.invokeDynamic' type=@[Nullable] androidx.core.view.OnApplyWindowInsetsListener origin=null
+          bootstrapMethodHandle: CALL 'public final fun <jvm-method-handle> (tag: kotlin.Int, owner: kotlin.String, name: kotlin.String, descriptor: kotlin.String, isInterface: kotlin.Boolean): kotlin.Any declared in kotlin.jvm.internal' type=kotlin.Any origin=null
+            tag: CONST Int type=kotlin.Int value=6
+            owner: CONST String type=kotlin.String value="java/lang/invoke/LambdaMetafactory"
+            name: CONST String type=kotlin.String value="metafactory"
+            descriptor: CONST String type=kotlin.String value="(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;"
+            isInterface: CONST Boolean type=kotlin.Boolean value=false
+          bootstrapMethodArguments: VARARG type=kotlin.Array<kotlin.Any> varargElementType=kotlin.Any
+            CALL 'public final fun <jvm-original-method-type> (method: kotlin.Any): kotlin.Any declared in kotlin.jvm.internal' type=kotlin.Any origin=null
+              method: RAW_FUNCTION_REFERENCE 'public abstract fun onApplyWindowInsets (p0: @[NonNull] @[FlexibleNullability] android.view.View?, p1: @[NonNull] @[FlexibleNullability] androidx.core.view.WindowInsetsCompat?): @[NonNull] @[FlexibleNullability] androidx.core.view.WindowInsetsCompat? declared in androidx.core.view.OnApplyWindowInsetsListener' type=kotlin.Any
+            RAW_FUNCTION_REFERENCE 'private final fun onCreate$lambda$0 (v: @[FlexibleNullability] @[NonNull] android.view.View?, insets: @[FlexibleNullability] @[NonNull] androidx.core.view.WindowInsetsCompat?): @[FlexibleNullability] @[NonNull] androidx.core.view.WindowInsetsCompat? declared in com.app.videobaseddrowsinessdetection.MainActivity' type=kotlin.Any
+            CALL 'public final fun <jvm-original-method-type> (method: kotlin.Any): kotlin.Any declared in kotlin.jvm.internal' type=kotlin.Any origin=null
+              method: RAW_FUNCTION_REFERENCE 'public abstract fun onApplyWindowInsets (p0: @[NonNull] @[FlexibleNullability] android.view.View?, p1: @[NonNull] @[FlexibleNullability] androidx.core.view.WindowInsetsCompat?): @[NonNull] @[FlexibleNullability] androidx.core.view.WindowInsetsCompat? [fake_override] declared in kotlin.jvm.internal.invokeDynamic.<fake>' type=kotlin.Any
+    SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:previewView type:androidx.camera.view.PreviewView? visibility:private' type=kotlin.Unit origin=null
+      receiver: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+      value: CALL 'public open fun findViewById <T> (p0: kotlin.Int): @[FlexibleNullability] T of com.app.videobaseddrowsinessdetection.MainActivity.findViewById? [fake_override] declared in com.app.videobaseddrowsinessdetection.MainActivity' type=@[FlexibleNullability] androidx.camera.view.PreviewView? origin=null
+        <T>: @[FlexibleNullability] androidx.camera.view.PreviewView?
+        $this: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+        p0: GET_FIELD 'FIELD IR_EXTERNAL_JAVA_DECLARATION_STUB name:previewView type:kotlin.Int visibility:public [static] declared in com.app.videobaseddrowsinessdetection.R.id' type=kotlin.Int superQualifierSymbol=com.app.videobaseddrowsinessdetection.R.id origin=null
+    SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:overlayView type:com.app.videobaseddrowsinessdetection.ui.OverlayView? visibility:private' type=kotlin.Unit origin=null
+      receiver: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+      value: CALL 'public open fun findViewById <T> (p0: kotlin.Int): @[FlexibleNullability] T of com.app.videobaseddrowsinessdetection.MainActivity.findViewById? [fake_override] declared in com.app.videobaseddrowsinessdetection.MainActivity' type=@[FlexibleNullability] com.app.videobaseddrowsinessdetection.ui.OverlayView? origin=null
+        <T>: @[FlexibleNullability] com.app.videobaseddrowsinessdetection.ui.OverlayView?
+        $this: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+        p0: GET_FIELD 'FIELD IR_EXTERNAL_JAVA_DECLARATION_STUB name:overlayView type:kotlin.Int visibility:public [static] declared in com.app.videobaseddrowsinessdetection.R.id' type=kotlin.Int superQualifierSymbol=com.app.videobaseddrowsinessdetection.R.id origin=null
+    SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:progressButton type:android.widget.Button? visibility:private' type=kotlin.Unit origin=null
+      receiver: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+      value: CALL 'public open fun findViewById <T> (p0: kotlin.Int): @[FlexibleNullability] T of com.app.videobaseddrowsinessdetection.MainActivity.findViewById? [fake_override] declared in com.app.videobaseddrowsinessdetection.MainActivity' type=@[FlexibleNullability] android.widget.Button? origin=null
+        <T>: @[FlexibleNullability] android.widget.Button?
+        $this: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+        p0: GET_FIELD 'FIELD IR_EXTERNAL_JAVA_DECLARATION_STUB name:showProgressBtn type:kotlin.Int visibility:public [static] declared in com.app.videobaseddrowsinessdetection.R.id' type=kotlin.Int superQualifierSymbol=com.app.videobaseddrowsinessdetection.R.id origin=null
+    SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:btnStartCamera type:android.widget.Button? visibility:private' type=kotlin.Unit origin=null
+      receiver: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+      value: CALL 'public open fun findViewById <T> (p0: kotlin.Int): @[FlexibleNullability] T of com.app.videobaseddrowsinessdetection.MainActivity.findViewById? [fake_override] declared in com.app.videobaseddrowsinessdetection.MainActivity' type=@[FlexibleNullability] android.widget.Button? origin=null
+        <T>: @[FlexibleNullability] android.widget.Button?
+        $this: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+        p0: GET_FIELD 'FIELD IR_EXTERNAL_JAVA_DECLARATION_STUB name:startCameraBtn type:kotlin.Int visibility:public [static] declared in com.app.videobaseddrowsinessdetection.R.id' type=kotlin.Int superQualifierSymbol=com.app.videobaseddrowsinessdetection.R.id origin=null
+    SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:textView type:android.widget.TextView? visibility:private' type=kotlin.Unit origin=null
+      receiver: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+      value: CALL 'public open fun findViewById <T> (p0: kotlin.Int): @[FlexibleNullability] T of com.app.videobaseddrowsinessdetection.MainActivity.findViewById? [fake_override] declared in com.app.videobaseddrowsinessdetection.MainActivity' type=@[FlexibleNullability] android.widget.TextView? origin=null
+        <T>: @[FlexibleNullability] android.widget.TextView?
+        $this: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+        p0: GET_FIELD 'FIELD IR_EXTERNAL_JAVA_DECLARATION_STUB name:textView type:kotlin.Int visibility:public [static] declared in com.app.videobaseddrowsinessdetection.R.id' type=kotlin.Int superQualifierSymbol=com.app.videobaseddrowsinessdetection.R.id origin=null
+    SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:btnTakePhoto type:android.widget.Button? visibility:private' type=kotlin.Unit origin=null
+      receiver: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+      value: CALL 'public open fun findViewById <T> (p0: kotlin.Int): @[FlexibleNullability] T of com.app.videobaseddrowsinessdetection.MainActivity.findViewById? [fake_override] declared in com.app.videobaseddrowsinessdetection.MainActivity' type=@[FlexibleNullability] android.widget.Button? origin=null
+        <T>: @[FlexibleNullability] android.widget.Button?
+        $this: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+        p0: GET_FIELD 'FIELD IR_EXTERNAL_JAVA_DECLARATION_STUB name:takePhotoBtn type:kotlin.Int visibility:public [static] declared in com.app.videobaseddrowsinessdetection.R.id' type=kotlin.Int superQualifierSymbol=com.app.videobaseddrowsinessdetection.R.id origin=null
+    CALL 'public open fun setVisibility (p0: kotlin.Int): kotlin.Unit [fake_override] declared in androidx.camera.view.PreviewView' type=kotlin.Unit origin=EQ
+      $this: BLOCK type=androidx.camera.view.PreviewView origin=FOLDED_ELVIS
+        WHEN type=androidx.camera.view.PreviewView origin=FOLDED_ELVIS
+          BRANCH
+            if: COMPOSITE type=kotlin.Boolean origin=null
+              VAR IR_TEMPORARY_VARIABLE name:tmp0 type:androidx.camera.view.PreviewView? [val]
+                GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:previewView type:androidx.camera.view.PreviewView? visibility:private' type=androidx.camera.view.PreviewView? origin=null
+                  receiver: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+              CALL 'public final fun not (): kotlin.Boolean [operator] declared in kotlin.Boolean' type=kotlin.Boolean origin=null
+                $this: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=null
+                  arg0: GET_VAR 'val tmp0: androidx.camera.view.PreviewView? [val] declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=androidx.camera.view.PreviewView? origin=null
+                  arg1: CONST Null type=kotlin.Nothing? value=null
+            then: GET_VAR 'val tmp0: androidx.camera.view.PreviewView? [val] declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=androidx.camera.view.PreviewView? origin=null
+          BRANCH
+            if: CONST Boolean type=kotlin.Boolean value=true
+            then: BLOCK type=kotlin.Unit origin=null
+              CALL 'public final fun throwUninitializedPropertyAccessException (propertyName: kotlin.String): kotlin.Unit declared in kotlin.jvm.internal.Intrinsics' type=kotlin.Unit origin=null
+                propertyName: CONST String type=kotlin.String value="previewView"
+      p0: CONST Int type=kotlin.Int value=8
+    CALL 'public open fun setVisibility (p0: kotlin.Int): kotlin.Unit [fake_override] declared in com.app.videobaseddrowsinessdetection.ui.OverlayView' type=kotlin.Unit origin=EQ
+      $this: BLOCK type=com.app.videobaseddrowsinessdetection.ui.OverlayView origin=FOLDED_ELVIS
+        WHEN type=com.app.videobaseddrowsinessdetection.ui.OverlayView origin=FOLDED_ELVIS
+          BRANCH
+            if: COMPOSITE type=kotlin.Boolean origin=null
+              VAR IR_TEMPORARY_VARIABLE name:tmp0 type:com.app.videobaseddrowsinessdetection.ui.OverlayView? [val]
+                GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:overlayView type:com.app.videobaseddrowsinessdetection.ui.OverlayView? visibility:private' type=com.app.videobaseddrowsinessdetection.ui.OverlayView? origin=null
+                  receiver: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+              CALL 'public final fun not (): kotlin.Boolean [operator] declared in kotlin.Boolean' type=kotlin.Boolean origin=null
+                $this: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=null
+                  arg0: GET_VAR 'val tmp0: com.app.videobaseddrowsinessdetection.ui.OverlayView? [val] declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.ui.OverlayView? origin=null
+                  arg1: CONST Null type=kotlin.Nothing? value=null
+            then: GET_VAR 'val tmp0: com.app.videobaseddrowsinessdetection.ui.OverlayView? [val] declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.ui.OverlayView? origin=null
+          BRANCH
+            if: CONST Boolean type=kotlin.Boolean value=true
+            then: BLOCK type=kotlin.Unit origin=null
+              CALL 'public final fun throwUninitializedPropertyAccessException (propertyName: kotlin.String): kotlin.Unit declared in kotlin.jvm.internal.Intrinsics' type=kotlin.Unit origin=null
+                propertyName: CONST String type=kotlin.String value="overlayView"
+      p0: CONST Int type=kotlin.Int value=8
+    CALL 'public open fun setVisibility (p0: kotlin.Int): kotlin.Unit [fake_override] declared in android.widget.Button' type=kotlin.Unit origin=EQ
+      $this: BLOCK type=android.widget.Button origin=FOLDED_ELVIS
+        WHEN type=android.widget.Button origin=FOLDED_ELVIS
+          BRANCH
+            if: COMPOSITE type=kotlin.Boolean origin=null
+              VAR IR_TEMPORARY_VARIABLE name:tmp0 type:android.widget.Button? [val]
+                GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:progressButton type:android.widget.Button? visibility:private' type=android.widget.Button? origin=null
+                  receiver: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+              CALL 'public final fun not (): kotlin.Boolean [operator] declared in kotlin.Boolean' type=kotlin.Boolean origin=null
+                $this: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=null
+                  arg0: GET_VAR 'val tmp0: android.widget.Button? [val] declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=android.widget.Button? origin=null
+                  arg1: CONST Null type=kotlin.Nothing? value=null
+            then: GET_VAR 'val tmp0: android.widget.Button? [val] declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=android.widget.Button? origin=null
+          BRANCH
+            if: CONST Boolean type=kotlin.Boolean value=true
+            then: BLOCK type=kotlin.Unit origin=null
+              CALL 'public final fun throwUninitializedPropertyAccessException (propertyName: kotlin.String): kotlin.Unit declared in kotlin.jvm.internal.Intrinsics' type=kotlin.Unit origin=null
+                propertyName: CONST String type=kotlin.String value="progressButton"
+      p0: CONST Int type=kotlin.Int value=8
+    CALL 'public open fun setVisibility (p0: kotlin.Int): kotlin.Unit [fake_override] declared in android.widget.TextView' type=kotlin.Unit origin=EQ
+      $this: BLOCK type=android.widget.TextView origin=FOLDED_ELVIS
+        WHEN type=android.widget.TextView origin=FOLDED_ELVIS
+          BRANCH
+            if: COMPOSITE type=kotlin.Boolean origin=null
+              VAR IR_TEMPORARY_VARIABLE name:tmp0 type:android.widget.TextView? [val]
+                GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:textView type:android.widget.TextView? visibility:private' type=android.widget.TextView? origin=null
+                  receiver: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+              CALL 'public final fun not (): kotlin.Boolean [operator] declared in kotlin.Boolean' type=kotlin.Boolean origin=null
+                $this: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=null
+                  arg0: GET_VAR 'val tmp0: android.widget.TextView? [val] declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=android.widget.TextView? origin=null
+                  arg1: CONST Null type=kotlin.Nothing? value=null
+            then: GET_VAR 'val tmp0: android.widget.TextView? [val] declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=android.widget.TextView? origin=null
+          BRANCH
+            if: CONST Boolean type=kotlin.Boolean value=true
+            then: BLOCK type=kotlin.Unit origin=null
+              CALL 'public final fun throwUninitializedPropertyAccessException (propertyName: kotlin.String): kotlin.Unit declared in kotlin.jvm.internal.Intrinsics' type=kotlin.Unit origin=null
+                propertyName: CONST String type=kotlin.String value="textView"
+      p0: CONST Int type=kotlin.Int value=8
+    CALL 'public open fun setVisibility (p0: kotlin.Int): kotlin.Unit [fake_override] declared in android.widget.Button' type=kotlin.Unit origin=EQ
+      $this: BLOCK type=android.widget.Button origin=FOLDED_ELVIS
+        WHEN type=android.widget.Button origin=FOLDED_ELVIS
+          BRANCH
+            if: COMPOSITE type=kotlin.Boolean origin=null
+              VAR IR_TEMPORARY_VARIABLE name:tmp0 type:android.widget.Button? [val]
+                GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:btnTakePhoto type:android.widget.Button? visibility:private' type=android.widget.Button? origin=null
+                  receiver: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+              CALL 'public final fun not (): kotlin.Boolean [operator] declared in kotlin.Boolean' type=kotlin.Boolean origin=null
+                $this: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=null
+                  arg0: GET_VAR 'val tmp0: android.widget.Button? [val] declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=android.widget.Button? origin=null
+                  arg1: CONST Null type=kotlin.Nothing? value=null
+            then: GET_VAR 'val tmp0: android.widget.Button? [val] declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=android.widget.Button? origin=null
+          BRANCH
+            if: CONST Boolean type=kotlin.Boolean value=true
+            then: BLOCK type=kotlin.Unit origin=null
+              CALL 'public final fun throwUninitializedPropertyAccessException (propertyName: kotlin.String): kotlin.Unit declared in kotlin.jvm.internal.Intrinsics' type=kotlin.Unit origin=null
+                propertyName: CONST String type=kotlin.String value="btnTakePhoto"
+      p0: CONST Int type=kotlin.Int value=8
+    SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:controller type:androidx.camera.view.LifecycleCameraController? visibility:private' type=kotlin.Unit origin=null
+      receiver: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+      value: CALL 'public final fun remember <T> (calculation: @[DisallowComposableCalls] kotlin.Function0<T of androidx.compose.runtime.ComposablesKt.remember>): T of androidx.compose.runtime.ComposablesKt.remember [inline] declared in androidx.compose.runtime.ComposablesKt' type=androidx.camera.view.LifecycleCameraController origin=null
+        <T>: androidx.camera.view.LifecycleCameraController
+        calculation: BLOCK type=kotlin.Function0<androidx.camera.view.LifecycleCameraController> origin=LAMBDA
+          COMPOSITE type=kotlin.Unit origin=null
+          FUNCTION_REFERENCE 'private final fun onCreate$lambda$2 (this$0: com.app.videobaseddrowsinessdetection.MainActivity): androidx.camera.view.LifecycleCameraController declared in com.app.videobaseddrowsinessdetection.MainActivity' type=kotlin.Function0<androidx.camera.view.LifecycleCameraController> origin=INLINE_LAMBDA reflectionTarget=null
+            this$0: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+    CALL 'public open fun setOnClickListener (p0: @[EnhancedNullability] android.view.View.OnClickListener?): kotlin.Unit [fake_override] declared in android.widget.Button' type=kotlin.Unit origin=null
+      $this: BLOCK type=android.widget.Button origin=FOLDED_ELVIS
+        WHEN type=android.widget.Button origin=FOLDED_ELVIS
+          BRANCH
+            if: COMPOSITE type=kotlin.Boolean origin=null
+              VAR IR_TEMPORARY_VARIABLE name:tmp0 type:android.widget.Button? [val]
+                GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:btnStartCamera type:android.widget.Button? visibility:private' type=android.widget.Button? origin=null
+                  receiver: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+              CALL 'public final fun not (): kotlin.Boolean [operator] declared in kotlin.Boolean' type=kotlin.Boolean origin=null
+                $this: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=null
+                  arg0: GET_VAR 'val tmp0: android.widget.Button? [val] declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=android.widget.Button? origin=null
+                  arg1: CONST Null type=kotlin.Nothing? value=null
+            then: GET_VAR 'val tmp0: android.widget.Button? [val] declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=android.widget.Button? origin=null
+          BRANCH
+            if: CONST Boolean type=kotlin.Boolean value=true
+            then: BLOCK type=kotlin.Unit origin=null
+              CALL 'public final fun throwUninitializedPropertyAccessException (propertyName: kotlin.String): kotlin.Unit declared in kotlin.jvm.internal.Intrinsics' type=kotlin.Unit origin=null
+                propertyName: CONST String type=kotlin.String value="btnStartCamera"
+      p0: BLOCK type=android.view.View.OnClickListener origin=LAMBDA
+        COMPOSITE type=kotlin.Unit origin=null
+        CALL 'public final fun <jvm-indy> <T> (dynamicCall: T of kotlin.jvm.internal.<jvm-indy>, bootstrapMethodHandle: kotlin.Any, vararg bootstrapMethodArguments: kotlin.Any): T of kotlin.jvm.internal.<jvm-indy> declared in kotlin.jvm.internal' type=android.view.View.OnClickListener origin=null
+          <T>: android.view.View.OnClickListener
+          dynamicCall: CALL 'public final fun onClick (p0: com.app.videobaseddrowsinessdetection.MainActivity): android.view.View.OnClickListener declared in kotlin.jvm.internal.invokeDynamic' type=android.view.View.OnClickListener origin=null
+            p0: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+          bootstrapMethodHandle: CALL 'public final fun <jvm-method-handle> (tag: kotlin.Int, owner: kotlin.String, name: kotlin.String, descriptor: kotlin.String, isInterface: kotlin.Boolean): kotlin.Any declared in kotlin.jvm.internal' type=kotlin.Any origin=null
+            tag: CONST Int type=kotlin.Int value=6
+            owner: CONST String type=kotlin.String value="java/lang/invoke/LambdaMetafactory"
+            name: CONST String type=kotlin.String value="metafactory"
+            descriptor: CONST String type=kotlin.String value="(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;"
+            isInterface: CONST Boolean type=kotlin.Boolean value=false
+          bootstrapMethodArguments: VARARG type=kotlin.Array<kotlin.Any> varargElementType=kotlin.Any
+            CALL 'public final fun <jvm-original-method-type> (method: kotlin.Any): kotlin.Any declared in kotlin.jvm.internal' type=kotlin.Any origin=null
+              method: RAW_FUNCTION_REFERENCE 'public abstract fun onClick (p0: @[FlexibleNullability] android.view.View?): kotlin.Unit declared in android.view.View.OnClickListener' type=kotlin.Any
+            RAW_FUNCTION_REFERENCE 'private final fun onCreate$lambda$3 (this$0: com.app.videobaseddrowsinessdetection.MainActivity, it: @[FlexibleNullability] android.view.View?): kotlin.Unit declared in com.app.videobaseddrowsinessdetection.MainActivity' type=kotlin.Any
+            CALL 'public final fun <jvm-original-method-type> (method: kotlin.Any): kotlin.Any declared in kotlin.jvm.internal' type=kotlin.Any origin=null
+              method: RAW_FUNCTION_REFERENCE 'public abstract fun onClick (p0: @[FlexibleNullability] android.view.View?): kotlin.Unit [fake_override] declared in kotlin.jvm.internal.invokeDynamic.<fake>' type=kotlin.Any
+    SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:cameraExecutor type:java.util.concurrent.ExecutorService? visibility:private' type=kotlin.Unit origin=null
+      receiver: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+      value: CALL 'public open fun newSingleThreadExecutor (): @[FlexibleNullability] java.util.concurrent.ExecutorService? declared in java.util.concurrent.Executors' type=@[FlexibleNullability] java.util.concurrent.ExecutorService? origin=null
+    SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:textViewH type:android.widget.TextView? visibility:private' type=kotlin.Unit origin=null
+      receiver: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+      value: CALL 'public open fun findViewById <T> (p0: kotlin.Int): @[FlexibleNullability] T of com.app.videobaseddrowsinessdetection.MainActivity.findViewById? [fake_override] declared in com.app.videobaseddrowsinessdetection.MainActivity' type=@[FlexibleNullability] android.widget.TextView? origin=null
+        <T>: @[FlexibleNullability] android.widget.TextView?
+        $this: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+        p0: GET_FIELD 'FIELD IR_EXTERNAL_JAVA_DECLARATION_STUB name:textViewHeight type:kotlin.Int visibility:public [static] declared in com.app.videobaseddrowsinessdetection.R.id' type=kotlin.Int superQualifierSymbol=com.app.videobaseddrowsinessdetection.R.id origin=null
+    SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:textViewW type:android.widget.TextView? visibility:private' type=kotlin.Unit origin=null
+      receiver: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+      value: CALL 'public open fun findViewById <T> (p0: kotlin.Int): @[FlexibleNullability] T of com.app.videobaseddrowsinessdetection.MainActivity.findViewById? [fake_override] declared in com.app.videobaseddrowsinessdetection.MainActivity' type=@[FlexibleNullability] android.widget.TextView? origin=null
+        <T>: @[FlexibleNullability] android.widget.TextView?
+        $this: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+        p0: GET_FIELD 'FIELD IR_EXTERNAL_JAVA_DECLARATION_STUB name:textViewWidth type:kotlin.Int visibility:public [static] declared in com.app.videobaseddrowsinessdetection.R.id' type=kotlin.Int superQualifierSymbol=com.app.videobaseddrowsinessdetection.R.id origin=null
+    CALL 'public final fun setText (p0: @[FlexibleNullability] kotlin.CharSequence?): kotlin.Unit declared in android.widget.TextView' type=kotlin.Unit origin=null
+      $this: BLOCK type=android.widget.TextView origin=FOLDED_ELVIS
+        WHEN type=android.widget.TextView origin=FOLDED_ELVIS
+          BRANCH
+            if: COMPOSITE type=kotlin.Boolean origin=null
+              VAR IR_TEMPORARY_VARIABLE name:tmp0 type:android.widget.TextView? [val]
+                GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:textView type:android.widget.TextView? visibility:private' type=android.widget.TextView? origin=null
+                  receiver: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+              CALL 'public final fun not (): kotlin.Boolean [operator] declared in kotlin.Boolean' type=kotlin.Boolean origin=null
+                $this: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=null
+                  arg0: GET_VAR 'val tmp0: android.widget.TextView? [val] declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=android.widget.TextView? origin=null
+                  arg1: CONST Null type=kotlin.Nothing? value=null
+            then: GET_VAR 'val tmp0: android.widget.TextView? [val] declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=android.widget.TextView? origin=null
+          BRANCH
+            if: CONST Boolean type=kotlin.Boolean value=true
+            then: BLOCK type=kotlin.Unit origin=null
+              CALL 'public final fun throwUninitializedPropertyAccessException (propertyName: kotlin.String): kotlin.Unit declared in kotlin.jvm.internal.Intrinsics' type=kotlin.Unit origin=null
+                propertyName: CONST String type=kotlin.String value="textView"
+      p0: CONST String type=kotlin.String value="Detecting..."
+    SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:overlayView type:com.app.videobaseddrowsinessdetection.ui.OverlayView? visibility:private' type=kotlin.Unit origin=null
+      receiver: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+      value: CALL 'public open fun findViewById <T> (p0: kotlin.Int): @[FlexibleNullability] T of com.app.videobaseddrowsinessdetection.MainActivity.findViewById? [fake_override] declared in com.app.videobaseddrowsinessdetection.MainActivity' type=@[FlexibleNullability] com.app.videobaseddrowsinessdetection.ui.OverlayView? origin=null
+        <T>: @[FlexibleNullability] com.app.videobaseddrowsinessdetection.ui.OverlayView?
+        $this: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+        p0: GET_FIELD 'FIELD IR_EXTERNAL_JAVA_DECLARATION_STUB name:overlayView type:kotlin.Int visibility:public [static] declared in com.app.videobaseddrowsinessdetection.R.id' type=kotlin.Int superQualifierSymbol=com.app.videobaseddrowsinessdetection.R.id origin=null
+    SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:progressButton type:android.widget.Button? visibility:private' type=kotlin.Unit origin=null
+      receiver: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+      value: CALL 'public open fun findViewById <T> (p0: kotlin.Int): @[FlexibleNullability] T of com.app.videobaseddrowsinessdetection.MainActivity.findViewById? [fake_override] declared in com.app.videobaseddrowsinessdetection.MainActivity' type=@[FlexibleNullability] android.widget.Button? origin=null
+        <T>: @[FlexibleNullability] android.widget.Button?
+        $this: GET_VAR '<this>: com.app.videobaseddrowsinessdetection.MainActivity declared in com.app.videobaseddrowsinessdetection.MainActivity.onCreate' type=com.app.videobaseddrowsinessdetection.MainActivity origin=null
+        p0: GET_FIELD 'FIELD IR_EXTERNAL_JAVA_DECLARATION_STUB name:showProgressBtn type:kotlin.Int visibility:public [static] declared in com.app.videobaseddrowsinessdetection.R.id' type=kotlin.Int superQualifierSymbol=com.app.videobaseddrowsinessdetection.R.id origin=null
+    COMPOSITE type=kotlin.Unit origin=null
+      CALL 'public open fun w (p0: @[EnhancedNullability] kotlin.String?, p1: @[EnhancedNullability] kotlin.String): kotlin.Int declared in android.util.Log' type=kotlin.Int origin=null
+        p0: CONST String type=kotlin.String value="YOLO"
+        p1: CONST String type=kotlin.String value="camera detected"
+      COMPOSITE type=kotlin.Unit origin=null
+
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:47)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate$default(FunctionCodegen.kt:40)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ClassCodegen.generateMethodNode(ClassCodegen.kt:406)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ClassCodegen.generateMethod(ClassCodegen.kt:423)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ClassCodegen.generate(ClassCodegen.kt:168)
+	at org.jetbrains.kotlin.backend.jvm.FileCodegen.lower(JvmPhases.kt:39)
+	at org.jetbrains.kotlin.backend.common.phaser.PhaseFactoriesKt.createFilePhase$lambda$4(PhaseFactories.kt:71)
+	at org.jetbrains.kotlin.backend.common.phaser.PhaseBuildersKt$createSimpleNamedCompilerPhase$1.phaseBody(PhaseBuilders.kt:69)
+	at org.jetbrains.kotlin.backend.common.phaser.SimpleNamedCompilerPhase.phaseBody(CompilerPhase.kt:226)
+	at org.jetbrains.kotlin.backend.common.phaser.AbstractNamedCompilerPhase.invoke(CompilerPhase.kt:113)
+	at org.jetbrains.kotlin.backend.common.phaser.PerformByIrFilePhase.invokeSequential(performByIrFile.kt:62)
+	... 44 more
+Caused by: org.jetbrains.kotlin.codegen.CompilationException: Back-end (JVM) Internal error: Couldn't inline method call: CALL 'public final fun remember <T> (calculation: @[DisallowComposableCalls] kotlin.Function0<T of androidx.compose.runtime.ComposablesKt.remember>): T of androidx.compose.runtime.ComposablesKt.remember [inline] declared in androidx.compose.runtime.ComposablesKt' type=androidx.camera.view.LifecycleCameraController origin=null
+Method: null
+File is unknown
+The root cause java.lang.IllegalStateException was thrown at: org.jetbrains.kotlin.codegen.inline.SourceCompilerForInlineKt.getMethodNode(SourceCompilerForInline.kt:118)
+	at org.jetbrains.kotlin.codegen.inline.InlineCodegen.performInline(InlineCodegen.kt:65)
+	at org.jetbrains.kotlin.backend.jvm.codegen.IrInlineCodegen.genInlineCall(IrInlineCodegen.kt:163)
+	at org.jetbrains.kotlin.backend.jvm.codegen.IrInlineCallGenerator.genCall(IrInlineCallGenerator.kt:36)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitCall(ExpressionCodegen.kt:653)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitCall(ExpressionCodegen.kt:138)
+	at org.jetbrains.kotlin.ir.expressions.IrCall.accept(IrCall.kt:24)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitFieldAccess(ExpressionCodegen.kt:878)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitFieldAccess(ExpressionCodegen.kt:138)
+	at org.jetbrains.kotlin.ir.visitors.IrElementVisitor$DefaultImpls.visitSetField(IrElementVisitor.kt:206)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitSetField(ExpressionCodegen.kt:908)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitSetField(ExpressionCodegen.kt:138)
+	at org.jetbrains.kotlin.ir.expressions.IrSetField.accept(IrSetField.kt:21)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitStatementContainer(ExpressionCodegen.kt:579)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlockBody(ExpressionCodegen.kt:584)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlockBody(ExpressionCodegen.kt:138)
+	at org.jetbrains.kotlin.ir.expressions.IrBlockBody.accept(IrBlockBody.kt:20)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.generate(ExpressionCodegen.kt:240)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.doGenerate(FunctionCodegen.kt:123)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:44)
+	... 54 more
+Caused by: java.lang.IllegalStateException: couldn't find inline method Landroidx/compose/runtime/ComposablesKt;.remember(Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
+	at org.jetbrains.kotlin.codegen.inline.SourceCompilerForInlineKt.getMethodNode(SourceCompilerForInline.kt:118)
+	at org.jetbrains.kotlin.codegen.inline.SourceCompilerForInlineKt.loadCompiledInlineFunction(SourceCompilerForInline.kt:96)
+	at org.jetbrains.kotlin.backend.jvm.codegen.IrSourceCompilerForInline.compileInlineFunction(IrSourceCompilerForInline.kt:91)
+	at org.jetbrains.kotlin.codegen.inline.InlineCodegen.compileInline(InlineCodegen.kt:43)
+	at org.jetbrains.kotlin.codegen.inline.InlineCodegen.performInline(InlineCodegen.kt:51)
+	... 72 more
+
+

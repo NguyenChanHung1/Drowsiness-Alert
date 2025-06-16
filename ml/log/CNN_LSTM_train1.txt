@@ -1,4 +1,0 @@
-No error when loading config file. Attempting training...
-Start epoch 0:
-[1;34mwandb[0m: 🚀 View run [33mquiet-frost-6[0m at: [34mhttps://wandb.ai/nchhdhn/CNN_LSTM/runs/3pf4j6dl[0m
-[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20250408_223846-3pf4j6dl/logs[0m

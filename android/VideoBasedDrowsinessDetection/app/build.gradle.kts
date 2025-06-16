@@ -48,11 +48,12 @@ dependencies {
     implementation(libs.androidx.camera.lifecycle)
     implementation(libs.androidx.camera.view)
     implementation(libs.tensorflow.lite.metadata)
-//    implementation(libs.tflite.gpu)
-//    implementation(libs.tflite.gpu.api)
+    implementation(libs.tensorflow.lite.gpu)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    implementation("com.google.code.gson:gson:2.8.6")
 
     var camerax_version = "1.2.2"
     implementation("androidx.camera:camera-core:${camerax_version}")
@@ -60,13 +61,19 @@ dependencies {
     implementation("androidx.camera:camera-lifecycle:${camerax_version}")
     implementation("androidx.camera:camera-video:${camerax_version}")
 
+    implementation("androidx.compose.runtime:runtime-android:+")
+
     implementation("androidx.camera:camera-view:${camerax_version}")
     implementation("androidx.camera:camera-extensions:${camerax_version}")
+
+    var coroutine_version = "1.3.5"
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:${coroutine_version}")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:${coroutine_version}")
 
     implementation("org.tensorflow:tensorflow-lite:2.8.0")
     implementation("org.tensorflow:tensorflow-lite-support:0.4.0")
     implementation("org.tensorflow:tensorflow-lite-gpu:2.8.0")
+    implementation ("org.tensorflow:tensorflow-lite-select-tf-ops:2.8.0")
 
-//    implementation("com.google.android.gms:play-services-tflite-java:16.0.1")
-//    implementation("com.google.android.gms:play-services-tflite-gpu:16.1.0")
+    implementation("com.google.mlkit:face-detection:16.1.7")
 }
