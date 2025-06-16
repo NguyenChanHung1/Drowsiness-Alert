@@ -103,7 +103,6 @@ class MainActivity : AppCompatActivity(), FaceDetectionListener {
                 }
                 status.await()
             }
-//            mlPipe.initialize(applicationContext)
         }
 
         if(init_status == 1) {

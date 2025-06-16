@@ -66,5 +66,4 @@ if __name__ == '__main__':
         quantize_set_generator = representative_dataset_gen
     else:
         quantize_set_generator = representative_landmarks_set_gen
-    quantize(args.saved_model_path, args.output_path,
-             quantize_set_generator)
+    quantize(args.saved_model_path, args.output_path, quantize_set_generator)

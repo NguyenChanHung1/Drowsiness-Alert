@@ -231,23 +231,4 @@ class MLPipeline(private val listener: FaceDetectionListener) {
         return this.drowsyFlag
     }
 
-//    fun saveBitmapToStorage(context: Context, bitmap: Bitmap, filename: String = "output.png"): File {
-//        val dir = File(Environment.getExternalStorageDirectory(), "Pictures")
-//        if (!dir.exists()) {
-//            dir.mkdirs()
-//        }
-//
-//        val file = File(dir, filename)
-//        try {
-//            val outputStream = FileOutputStream(file)
-//            bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream)
-//            outputStream.flush()
-//            outputStream.close()
-//            Log.d("BitmapSave", "Saved bitmap to: ${file.absolutePath}")
-//        } catch (e: IOException) {
-//            e.printStackTrace()
-//            Log.e("BitmapSave", "Failed to save bitmap: ${e.message}")
-//        }
-//        return file
-//    }
 }

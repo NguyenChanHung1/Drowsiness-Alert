@@ -28,7 +28,6 @@ class HistoryActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_drowsiness_history)
 
-        // Set up toolbar
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -49,18 +48,13 @@ class HistoryActivity : AppCompatActivity() {
         // Set up recycler view
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        // Initialize drowsiness event manager
         eventManager = EventManager(applicationContext)
-
-        // Load events and setup adapter
         loadEvents()
 
-        // Set up FAB for clearing all events
         clearAllFab.setOnClickListener {
             showClearConfirmationDialog()
         }
 
-        // Apply animation to the recycler view
         val animation = AnimationUtils.loadAnimation(this, R.anim.item_animation_from_bottom)
         recyclerView.startAnimation(animation)
     }

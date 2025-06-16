@@ -33,10 +33,6 @@ class OverlayView (context: Context, attrs: AttributeSet?=null) : View(context, 
         invalidate()
     }
 
-    fun getBox(): RectF {
-        return box
-    }
-
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         box?.let {
