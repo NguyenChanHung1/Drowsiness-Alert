@@ -22,8 +22,7 @@ parser.add_argument(
     type=str,
     metavar='PATH')
 ```
-Download [300W dataset](https://drive.google.com/file/d/1zyahLoR9i2hgS7d_taRPcYBYJzD3Ir1b/view?usp=sharing) 
- and unzip in the data/300W/ folder.
+Download [300W dataset](https://drive.google.com/file/d/1zyahLoR9i2hgS7d_taRPcYBYJzD3Ir1b/view?usp=sharing) and unzip in the data/300W/ folder.
  
 Re-train PFLD:
 ``` shell
