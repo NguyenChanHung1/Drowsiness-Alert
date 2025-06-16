@@ -54,5 +54,5 @@ sh experiment_T60.sh
 ## Run mobile app
 Open the mobile project `VideoBasedDrowsinessDetection` in Android Studio and click on Run button:
 <div>
-    <img src="assets/mobile_app_guide.png">
+    <img src="assets/mobile_guide.jpg">
 </div>
